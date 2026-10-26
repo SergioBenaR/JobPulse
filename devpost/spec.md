@@ -44,6 +44,7 @@ Implementa `prd.md > Look and Feel`.
 - Plus Jakarta Sans en interfaz y JetBrains Mono en etiquetas técnicas. Incluidas localmente desde paquetes Fontsource 5.3.0, con sus licencias; fuentes de sistema como respaldo. Referencias: https://fonts.google.com/specimen/Plus+Jakarta+Sans, https://fonts.google.com/specimen/JetBrains+Mono y https://fontsource.org/docs/getting-started/install.
 - Jerarquía tipográfica marcada, tarjeta central con salario destacado, bordes discretos y etiquetas técnicas. Diseño adaptable a móvil y escritorio, sin desbordamiento horizontal.
 - Panel con cifras claras, barras CSS para motivos y comentarios legibles. No se necesita una librería de gráficos.
+- Revisión final: contenedor de evaluación de ancho máximo 510 px centrado, sin columnas laterales; un único aviso global DEMO, títulos “Evaluar ofertas” y “Panel empresarial”, secciones “Motivos de rechazo” y “Recomendaciones anónimas”. Sin eslóganes repetidos; no cambiar tamaños ni tipografías.
 - DEMO visible en ambas vistas; interfaz en español. No añadir motivos culturales específicos no definidos en el PRD.
 - Botones Aprobar/Rechazar con texto, foco visible y estado deshabilitado cuando corresponda. El color no es la única señal.
 - Panel de rechazo como diálogo accesible: foco dentro, cierre por botón/Escape, vuelta del foco al cerrar. Respetar `prefers-reduced-motion`.

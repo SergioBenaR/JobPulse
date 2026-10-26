@@ -31,6 +31,7 @@ Fuente: `scope.md > The Core Loop` y `What "Working" Looks Like`.
 - Fondo `#0D1117`, tarjetas `#161B22`, texto `#F0F6FC`, índigo `#6366F1`, verde `#22C55E`, rojo `#EF4444`.
 - Plus Jakarta Sans para la interfaz; JetBrains Mono para etiquetas técnicas.
 - Datos ficticios identificados claramente como **DEMO** en ambas vistas.
+- Ajuste final solicitado: un único aviso DEMO por vista, sin columnas laterales ni textos promocionales repetitivos; tarjeta de 510 px centrada en escritorio, encabezados directos y tamaños/tipografías conservados.
 - Sin corazones, “Match” ni funciones de postulación.
 - La inspiración boliviana se mencionó antes; la dirección visual final especificada por el usuario es la anterior. No se han definido motivos culturales concretos: no inventar símbolos o requisitos decorativos adicionales.
 

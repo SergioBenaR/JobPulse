@@ -77,9 +77,17 @@ try {
   await call('Page.navigate', { url: 'http://127.0.0.1:5173' });
   await ready();
   await evaluate('document.fonts.ready');
+  assert.equal(await evaluate('document.querySelectorAll(".demo-tag").length'), 1);
+  assert.equal(await evaluate('document.querySelectorAll("aside").length'), 0);
+  assert.equal(await text('h1'), 'Evaluar ofertas');
+  assert.ok(await evaluate('(() => { const r = document.querySelector(".offer-card").getBoundingClientRect(); return Math.abs(r.x + r.width / 2 - document.documentElement.clientWidth / 2) < 2 && r.width === 510; })()'));
+  assert.equal(await evaluate('getComputedStyle(document.querySelector(".offer-title h3")).fontSize'), '26px');
+  console.log('PASS: centered 510px card, original title size, no sidebars and one DEMO notice');
   await screenshot('desktop');
   assert.equal(await evaluate('document.fonts.check(\'400 12px "Plus Jakarta Sans Variable"\')'), true);
   await dashboard();
+  assert.equal(await evaluate('document.querySelectorAll(".demo-tag").length'), 1);
+  assert.equal(await text('h1'), 'Panel empresarial');
   assert.equal(await text('[data-metric="total"]'), '8');
   assert.equal(await text('[data-metric="approved"]'), '5');
   assert.equal(await text('[data-metric="rejected"]'), '3');
@@ -93,7 +101,7 @@ try {
   await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
   await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
   await poll(() => evaluate('!document.querySelector("dialog[open]")'), 'Escape closes dialog');
-  assert.equal(await evaluate('document.activeElement.id'), 'reject');
+  await poll(() => evaluate('document.activeElement.id === "reject"'), 'focus restored after close event');
   await click('#reject');
   assert.equal(await evaluate('document.querySelector("textarea").value'), '');
   await click('input[value="salario"]');
