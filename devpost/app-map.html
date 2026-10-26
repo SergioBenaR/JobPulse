@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JobPulse — Mapa de la aplicación</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0D1117;color:#F0F6FC;line-height:1.7}*{box-sizing:border-box}body{max-width:920px;margin:auto;padding:40px 24px}h1,h2{line-height:1.25}h1{font-size:34px;letter-spacing:-1px}h2{font-size:21px;margin-top:36px}p{color:#b5c0cf}code{font-family:monospace;color:#c0c2ff;overflow-wrap:anywhere}a{color:#b7b9ff}a:focus-visible,summary:focus-visible{outline:2px solid #a5b4fc;outline-offset:5px}.tag{color:#a5a7ff;font:12px monospace;letter-spacing:1px}.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin:28px 0}.box{background:#161B22;border:1px solid #344050;border-radius:10px;padding:16px}.box strong{display:block;margin-bottom:7px}.arrow{color:#a5a7ff}.route li{margin:18px 0}details{background:#161B22;border:1px solid #344050;border-radius:9px;padding:16px;margin:12px 0}summary{cursor:pointer;font-weight:600}pre{white-space:pre-wrap;background:#161B22;padding:20px;border-radius:9px}footer{margin-top:35px;border-top:1px solid #344050;font-size:12px;color:#98a3b3;padding-top:18px}@media(max-width:650px){.flow{grid-template-columns:1fr}.arrow{text-align:center;transform:rotate(90deg)}h1{font-size:28px}}
+  </style>
+</head>
+<body>
+  <span class="tag">JOBPULSE / GUÍA DEL CÓDIGO</span>
+  <h1>De una evaluación a un resultado.</h1>
+  <p>Dos vistas de demostración: una persona evalúa condiciones laborales y el panel empresarial muestra votos, motivos y recomendaciones. Todos los ejemplos iniciales son ficticios. Los votos nuevos sí actualizan los resultados.</p>
+  <h2>Una acción real, de principio a fin</h2>
+  <div class="flow" role="img" aria-label="Enviar voto en main.js, guardar en storage.js y calcular resultados en model.js">
+    <div class="box"><strong>1. Enviar</strong><code>src/main.js<br>save()</code><p>Botón o gesto; al rechazar, se confirma con o sin detalles.</p></div>
+    <span class="arrow" aria-hidden="true">→</span>
+    <div class="box"><strong>2. Guardar</strong><code>src/storage.js<br>commitEvaluation()</code><p>Valida y escribe en localStorage antes de avanzar.</p></div>
+    <span class="arrow" aria-hidden="true">→</span>
+    <div class="box"><strong>3. Calcular</strong><code>src/model.js<br>calculateMetrics()</code><p>El panel deriva los resultados desde votos iniciales y nuevos.</p></div>
+  </div>
+  <h2>Ruta de referencia: tres paradas</h2>
+  <p>Referencia para explorar en el editor; no representa un recorrido práctico realizado por el usuario.</p>
+  <ol class="route">
+    <li><a href="../src/main.js"><code>src/main.js</code></a> — busca <code>function save</code>. Si la escritura falla, mantiene la oferta pendiente y muestra un error. Si funciona, actualiza la vista.</li>
+    <li><a href="../src/storage.js"><code>src/storage.js</code></a> — busca <code>commitEvaluation</code> y <code>resetDemo</code>. La clave es <code>jobpulse.demo.v1</code>; reiniciar solo restablece esta clave.</li>
+    <li><a href="../src/model.js"><code>src/model.js</code></a> — busca <code>calculateMetrics</code>. Cuenta votos y motivos; los porcentajes de motivos usan el total de rechazos y admiten selección múltiple.</li>
+  </ol>
+  <h2>Para cambiar algo, empieza aquí</h2>
+  <details><summary>Ofertas, salarios y votos de ejemplo</summary><p><code>src/data.js</code>: <code>offers</code> y <code>seedEvaluations</code>. Mantén identificadores coherentes y conserva el aviso DEMO.</p></details>
+  <details><summary>Tarjeta y panel de rechazo</summary><p><code>src/review.js</code>: <code>renderReview</code>, <code>rejectionDialog</code> y <code>bindSwipe</code>. Cerrar cancela; enviar guarda detalles; omitir guarda solo el rechazo.</p></details>
+  <details><summary>Métricas y recomendaciones visibles</summary><p><code>src/dashboard.js &gt; renderDashboard</code>. Los cálculos viven en <code>src/model.js</code>; los comentarios se escapan con <code>src/ui.js &gt; escapeHTML</code>.</p></details>
+  <details><summary>Diseño y centrado</summary><p><code>src/styles.css</code>: variables de <code>:root</code>, <code>.review-layout</code> y reglas adaptables. La revisión final eliminó columnas y eslóganes, centró la tarjeta a un máximo de 510 px y conservó tipografías y tamaños.</p></details>
+  <h2>Una práctica para reutilizar</h2>
+  <p>Convierte una intención en un resultado observable antes de programar. <code>prd.md &gt; Panel empresarial</code> exige actualización real. <code>tests/model.test.js</code> comprueba cambios exactos de votos y motivos; <code>tests/browser.mjs</code> comprueba el recorrido completo. Para el ajuste visual se verifican el centrado y un solo aviso DEMO. En otro proyecto, define primero qué cambiará en pantalla y comprueba ese cambio.</p>
+  <h2>Volver a ejecutar</h2>
+  <pre><code>npm install
+npm run dev -- --host 127.0.0.1
+# Abrir http://127.0.0.1:5173
+
+npm test
+npm run build
+# Con el servidor activo y Chrome instalado:
+npm run test:browser</code></pre>
+  <p>El almacenamiento es local a cada navegador y dirección. No hay backend, cuentas ni sincronización. Puedes abrir este mapa directamente desde <code>devpost/app-map.html</code>, sin servidor, conexión o scripts.</p>
+  <footer>Instantánea del código en <code>9d683b7</code> · Puede quedar desactualizada tras cambios posteriores. Documentación técnica, no una pantalla de la aplicación.</footer>
+</body>
+</html>

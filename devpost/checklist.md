@@ -19,11 +19,11 @@ Build mode: fast — solicitado por el usuario. Menos explicación de código; c
   Learner check: Ejecutar `npm run dev -- --host 127.0.0.1`, abrir `http://127.0.0.1:5173`, comprobar panel inicial, cancelar un rechazo, enviar otro con motivo y comentario, aprobar, recargar, completar la ronda y reiniciar. Confirmar cambios reales y describir cualquier problema visual o funcional.
   Commit: `Build functional JobPulse demo`
 
-Implementación verificada y guardada en `e376c30`. La revisión práctica y el cierre de aprendizaje siguen pendientes; no se considera completada `5-build` todavía.
+Implementación inicial en `e376c30`; ajuste final verificado y guardado en `9d683b7`. Sigue pendiente el reintento/confirmación del usuario tras el ajuste; no se considera completada `5-build` todavía.
 
 ## Hands-on Checkpoints
 
-- [ ] Early usable behavior explored — sesión compartida con revisión final para este prototipo de un único circuito; el feedback puede generar correcciones antes de cerrar la entrega.
+- [x] Early usable behavior explored — feedback del usuario recibido y concretado en seis ajustes finales de UX/UI; revisión funcional final y reintento posterior pendientes de confirmación.
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
@@ -38,15 +38,15 @@ Verificación del agente: 9 pruebas Node correctas; compilación Vite 7.3.7 corr
 
 ## Code Tour and App Map
 
-- [ ] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
-- [ ] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
-- [ ] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
+- [x] Learning activity complete — breve recapitulación basada en evidencia: recepción del voto, escritura local y métricas derivadas; criterio de 8 a 9 evaluaciones ligado a las pruebas.
+- [x] Optional edit and transfer reflection addressed — edición adicional no aplicable: ya se realizó el ajuste solicitado y el usuario pidió pasar directamente a entrega; reflexión opcional no requerida.
+- [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse — instantánea de 9d683b7, abierta en Chrome mediante file:// sin dependencias de red y enlazada al usuario.
 
-Activity and evidence: Pendiente del código y revisión final.
-Route and stops: Pendiente; seguir un voto desde interfaz hasta almacenamiento y cálculo.
-Edit outcome: Pendiente.
-Reflection: No ofrecida todavía.
-Activity mode: Recorrido breve tras la revisión; no generar páginas HTML de planificación.
+Activity and evidence: Recapitulación comunicada, con referencias a save, commitEvaluation y calculateMetrics, y pruebas de incremento exacto. No se afirma práctica ni dominio del usuario. Ajustes técnicos verificados; confirmación final del usuario pendiente.
+Route and stops: Ruta de referencia, no recorrido interactivo: src/main.js > save; src/storage.js > commitEvaluation; src/model.js > calculateMetrics.
+Edit outcome: Ajuste de UX solicitado implementado en 9d683b7; sin edición adicional de aprendizaje.
+Reflection: No aplicable al avance inmediato solicitado; sin testimonio personal generado.
+Activity mode: Recapitulación breve y mapa de referencia, no recorrido práctico. Mapa obligatorio de la skill, separado de los planes Markdown.
 
 ## Revisions
 
