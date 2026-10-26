@@ -53,6 +53,10 @@ Edit outcome: Ajuste de UX solicitado implementado en 9d683b7; sin edición adic
 Reflection: No aplicable al avance inmediato solicitado; sin testimonio personal generado.
 Activity mode: Recapitulación breve y mapa de referencia, no recorrido práctico. Mapa obligatorio de la skill, separado de los planes Markdown.
 
+## Shipping handoff
+
+5-build is complete. The learner confirms submission of JobPulse at https://devpost.com/software/jobpulse-podc56; 6-ship's guided walkthrough is closed with the evidence and limits recorded in `ship.md`. The learner completed the project-value questions in Additional info and reports no separate survey after submission. This is not recorded as completion of an independent exit survey.
+
 ## Revisions
 
 - El usuario aprueba la revisión visual/funcional y solicita traducción completa al inglés antes del cierre. Solo textos y metadatos de idioma; se conservan CSS, lógica, identificadores de almacenamiento y comentarios escritos por el usuario. Se actualizan expectativas de texto en pruebas y documentación.

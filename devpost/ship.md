@@ -1,6 +1,6 @@
 ---
 doc: ship
-status: in_progress
+status: completed
 ---
 
 # JobPulse — Delivery Checklist
@@ -34,12 +34,12 @@ GitHub CLI 2.103.3 is available as a portable copy outside the project and authe
 - [x] Recording guidance supplied for the approved core journey; learner supplied the completed video link. No agent-written narration or submission copy supplied.
 - [x] Video published by the learner. Title: JobPulse - Build with AI: Basics | Devpost Hackathon.
 - [x] Anonymous watch-page and oEmbed requests succeed. Player metadata for KZRbjjCcjqA reports playabilityStatus OK and lengthSeconds 86. oEmbed metadata provides a video iframe.
-- [ ] Learner checks playback in a private browser window and confirms the recording visibly shows the core evaluation-to-metrics update. Metadata checks do not establish actual screen content or audio quality.
+- Verification scope: the agent checked anonymous access, embed metadata, duration and player status. Actual audiovisual content and a private-window playback check were not independently verified; no such verification is claimed.
 - Video URL: https://www.youtube.com/watch?v=KZRbjjCcjqA
 
 Hackathon: https://learn-ai-basics.devpost.com/
 Submission management: https://devpost.com/submit-to/30447-build-with-ai-basics/manage/submissions
-Learner-reported progress: step 3/5, Project details; description and technology fields already completed, public repository ready. Prioritize recording/upload and preserve the existing learner-written answers.
+Final learner-reported progress: JobPulse was submitted to Devpost and the learner supplied its public project URL. Description and technology fields were previously reported complete; the learner also reports completing the project-value questions in Additional info. The agent did not inspect the authenticated form or rewrite those answers.
 
 Quick recording plan (screen actions, not narration):
 - 0:00–0:15: show Review offers and the single DEMO notice, salary, requirements and benefits.
@@ -59,13 +59,18 @@ Suggested screen actions, from the approved core journey:
 On Windows, Xbox Game Bar (`Win+G`) can record an active browser window; `Win+Alt+R` starts/stops recording where supported. Keep unrelated windows and account details out of the capture. If the shortcut is unavailable, use the screen recorder already available on the computer. A local recording is sufficient; deployment is optional.
 
 ## Devpost submission — learner-owned
-- [ ] Open the actual hackathon's submission form and check its current required fields.
-- [ ] Learner writes/confirms the project name, short description and all other required answers. The agent may point out gaps and correct spelling/grammar, but does not draft or rewrite submission copy.
-- Learner reports description and technology fields already completed at step 3/5; do not request or rewrite them again. Remaining required fields still need checking in the user's form.
-- [ ] Add the accessible video URL and public GitHub URL.
-- [ ] Learner completes the exit survey.
-- [ ] Learner submits on Devpost and confirms completion. Do not mark submitted before confirmation.
-- Submission URL: pending.
+- [x] Actual hackathon/form URLs received; learner completed the submission in their own authenticated browser. The agent could not independently inspect the required fields because Devpost returns HTTP 403 to automated requests.
+- [x] Learner reports completing the description, technology fields and project-value questions in Additional info. No submission answers were authored or rewritten by the agent.
+- [x] Required delivery artifacts prepared and their URLs recorded: public GitHub repository and published demo video. Placement within the authenticated Devpost form was not independently inspected.
+- [x] Learner explicitly confirms that JobPulse was submitted to Devpost and provides its public project URL.
+- Project URL supplied by the learner: https://devpost.com/software/jobpulse-podc56
+- Submission evidence: learner's explicit confirmation. Anonymous automated access returns HTTP 403, so the agent does not claim independent verification of Devpost submission status.
 
-## Current blockers
-Public repository, MIT license and published video URL are ready; video metadata confirms 86 seconds and playability OK without authentication. Learner should check actual playback/content, finish remaining required form fields and exit survey, then submit. No Devpost submission has been confirmed.
+## Survey record — no equivalence assumed
+- The learner completed questions about the project's value in Additional info.
+- The learner reports that no separate survey appeared after submission.
+- It has not been established that Additional info is the curriculum's exit survey. Completion of an independent exit survey is not claimed or checked off.
+- No separate survey link, outstanding form requirement or rejected submission was reported. Do not invent an additional task or require the learner to repeat completed answers. The survey distinction remains a limitation of the record, not evidence of an unfinished submission.
+
+## Closure
+6-ship's guided walkthrough is closed on the learner-confirmed submission, with the public repository, MIT license and accessible short video recorded. No additional indispensable action has been identified from the actual workflow reported by the learner. This closure does not certify an unseen independent survey or an independent inspection of the authenticated Devpost form. Reopen only if Devpost or the organizer identifies a concrete missing requirement.

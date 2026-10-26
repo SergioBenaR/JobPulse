@@ -40,9 +40,11 @@ Stack aprobado por el usuario:
 
 ### Submission links
 - Public source repository: https://github.com/SergioBenaR/JobPulse — anonymously verified; code licensed under MIT, Copyright (c) 2026 Sergio Benavides. Font licenses remain SIL OFL 1.1.
-- Demo video: https://www.youtube.com/watch?v=KZRbjjCcjqA — anonymous watch page and oEmbed available; player metadata reports playability OK and duration 86 seconds (1:26), below the learner-reported 3-minute limit. Actual playback/content review remains the learner's check.
-- Hackathon: https://learn-ai-basics.devpost.com/; form: https://devpost.com/submit-to/30447-build-with-ai-basics/manage/submissions. Learner is at step 3/5 with description and technology fields completed. Video must be under 3 minutes according to the learner; automated hackathon access returns HTTP 403. Submission not yet confirmed.
+- Demo video: https://www.youtube.com/watch?v=KZRbjjCcjqA — anonymous watch page and oEmbed available; player metadata reports playability OK and duration 86 seconds (1:26), below the learner-reported 3-minute limit. Actual audiovisual content was not independently reviewed by the agent.
+- Hackathon: https://learn-ai-basics.devpost.com/; form: https://devpost.com/submit-to/30447-build-with-ai-basics/manage/submissions. Learner explicitly confirms final submission and reports completing the description, technology fields and project-value questions in Additional info. Automated Devpost access returns HTTP 403; submission confirmation is learner-reported.
 - Detailed technical delivery state: `devpost/ship.md`.
+- Submitted project supplied by the learner: https://devpost.com/software/jobpulse-podc56.
+- Survey record: no separate post-submission survey appeared according to the learner. Additional info is not assumed to be an independent exit survey; completion of an independent survey is not established. Guided 6-ship closed with these facts recorded; no concrete outstanding form requirement identified.
 
 ## Look and Feel
 Implementa `prd.md > Look and Feel`.
