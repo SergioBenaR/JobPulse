@@ -23,8 +23,9 @@ Technical delivery notes only. Project descriptions, narration, submission answe
 - [x] GitHub CLI authenticated interactively through GitHub's browser flow as SergioBenaR. No token was requested in chat or added to the project.
 - [x] User explicitly authorized creating public SergioBenaR/JobPulse and pushing included code and history.
 - [x] Checked SergioBenaR/JobPulse before creation; it did not exist.
-- [ ] Create/link the authorized public repository, push intended commits and verify anonymous access.
-- Repository URL: pending.
+- [x] Created public SergioBenaR/JobPulse, configured origin and pushed the intended commits/history. Anonymous HTTPS access to the repository and raw LICENSE verified; GitHub reports PUBLIC visibility and MIT license. Published file tree excludes the learner profile, .env files, authentication logs and course tooling.
+- Repository URL: https://github.com/SergioBenaR/JobPulse
+- Published code/license checkpoint: `0438b20` (Add MIT license for Sergio Benavides); delivery records may have later commits.
 
 GitHub CLI 2.103.3 is available as a portable copy outside the project and authenticated as SergioBenaR. Source: https://github.com/cli/cli/releases/tag/v2.103.3.
 
@@ -53,4 +54,4 @@ On Windows, Xbox Game Bar (`Win+G`) can record an active browser window; `Win+Al
 - Submission URL: pending.
 
 ## Current blockers
-Public repository creation/push and anonymous verification are next. Actual Devpost form URL and learner-recorded video are still needed. No Devpost submission has been made.
+Public repository and MIT license are complete. Actual Devpost form URL, learner-recorded video and its accessible link, learner-written required answers and exit survey are still needed. No Devpost submission has been made.

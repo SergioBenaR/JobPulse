@@ -38,6 +38,12 @@ Stack aprobado por el usuario:
 - Record the local demo: show the DEMO notice, Reject with a reason and comment, Submit review, inspect Company dashboard, Approve another offer, complete the round and Reset DEMO.
 - Submission requires a short video and a public GitHub repository. Deployment is optional and outside the current scope.
 
+### Submission links
+- Public source repository: https://github.com/SergioBenaR/JobPulse — anonymously verified; code licensed under MIT, Copyright (c) 2026 Sergio Benavides. Font licenses remain SIL OFL 1.1.
+- Demo video: pending recording/upload and anonymous access check.
+- Devpost form/submission: actual URL still needed from the learner; not submitted.
+- Detailed technical delivery state: `devpost/ship.md`.
+
 ## Look and Feel
 Implementa `prd.md > Look and Feel`.
 - Variables CSS exactas: fondo `#0D1117`, superficie `#161B22`, texto `#F0F6FC`, acento `#6366F1`, aprobación `#22C55E`, rechazo `#EF4444`.
