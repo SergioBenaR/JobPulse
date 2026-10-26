@@ -60,3 +60,7 @@ The interface and fictional dataset are in English. Company and place names are 
 ## Planning and submission
 
 Plans and progress are in `devpost/`. The personal learner profile is excluded from Git. The hackathon submission requires a short demo video and a public GitHub repository; deployment is optional.
+
+## Third-party font licenses
+
+Plus Jakarta Sans and JetBrains Mono remain licensed under the SIL Open Font License 1.1. Their copyright notices and license are included in [public/licenses/FONTS-OFL.txt](public/licenses/FONTS-OFL.txt) and copied into production builds at `licenses/FONTS-OFL.txt`. Their license is separate from the application's code license, which is pending owner confirmation.
