@@ -15,18 +15,18 @@ Technical delivery notes only. Project descriptions, narration, submission answe
 - [x] App map refreshed, checked offline and shared: `devpost/app-map.html`.
 
 ## Public repository and license
-- [x] Reviewed tracked filenames and all four existing commits. The learner profile and .env files have never been tracked; ignore rules remain active. History search found no matches for the credential patterns checked. This is a targeted audit, not a guarantee against every possible secret format.
+- [x] Reviewed tracked filenames and all existing commits before publication. The learner profile and .env files have never been tracked; ignore rules remain active. History search found no matches for the credential patterns checked. Git author/committer email uses GitHub's noreply address; authorship names are part of the authorized history. No credentials, private email addresses or local authentication logs are included. This is a targeted audit, not a guarantee against every possible secret format.
 - [x] Course tooling folders and other unrelated untracked files are excluded from intended staging.
-- [ ] Confirm code license and copyright holder. Agent recommendation: MIT, copyright 2026 JobPulse contributors; awaiting user agreement.
-- [ ] Add the approved LICENSE and identify third-party font licenses separately in technical documentation.
-- [x] Preserved both font copyright notices and SIL OFL 1.1 in `public/licenses/FONTS-OFL.txt`, included in production builds; README identifies them separately. Code license still awaits approval.
-- [ ] Authenticate GitHub CLI interactively in the user's terminal/browser. Do not paste tokens into chat.
-- [ ] Obtain explicit authorization to create a public repository and push the included code and history.
-- [ ] Check whether JobPulse already exists on the authenticated account before creating it.
+- [x] User approved MIT with the exact holder: Copyright (c) 2026 Sergio Benavides.
+- [x] Added the approved LICENSE and identified third-party font licenses separately in README.
+- [x] Preserved both font copyright notices and SIL OFL 1.1 in `public/licenses/FONTS-OFL.txt`, included in production builds; README identifies them separately from MIT.
+- [x] GitHub CLI authenticated interactively through GitHub's browser flow as SergioBenaR. No token was requested in chat or added to the project.
+- [x] User explicitly authorized creating public SergioBenaR/JobPulse and pushing included code and history.
+- [x] Checked SergioBenaR/JobPulse before creation; it did not exist.
 - [ ] Create/link the authorized public repository, push intended commits and verify anonymous access.
 - Repository URL: pending.
 
-GitHub CLI 2.103.3 is available as a portable copy outside the project. No GitHub account is currently authenticated and no remote is configured. Source: https://github.com/cli/cli/releases/tag/v2.103.3.
+GitHub CLI 2.103.3 is available as a portable copy outside the project and authenticated as SergioBenaR. Source: https://github.com/cli/cli/releases/tag/v2.103.3.
 
 ## Demo video — recording mechanics
 - [ ] Check the actual Devpost form for its required video duration, format and hosting constraints. The actual hackathon/form URL has not been provided or verified; do not assume a duration limit.
@@ -53,4 +53,4 @@ On Windows, Xbox Game Bar (`Win+G`) can record an active browser window; `Win+Al
 - Submission URL: pending.
 
 ## Current blockers
-License/publication authorization, interactive GitHub authentication, actual Devpost form URL and learner-recorded video are still needed. No public repository has been created or pushed, and no Devpost submission has been made.
+Public repository creation/push and anonymous verification are next. Actual Devpost form URL and learner-recorded video are still needed. No Devpost submission has been made.
