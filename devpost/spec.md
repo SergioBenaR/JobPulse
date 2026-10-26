@@ -30,13 +30,13 @@ Stack aprobado por el usuario:
 - **Pruebas:** `node:test` para cálculos y transiciones. Chrome ya instalado se controla con su protocolo de depuración y WebSocket nativo de Node, sin instalar herramientas opcionales. https://nodejs.org/api/test.html y https://chromedevtools.github.io/devtools-protocol/.
 
 ## Where It Runs and How Someone Tries It
-- Windows, Node y npm ya disponibles. No necesita credenciales ni servicios remotos.
-- Primera ejecución: `npm install`.
-- Desarrollo: `npm run dev -- --host 127.0.0.1`, puerto fijo `5173` con fallo explícito si está ocupado. Abrir `http://127.0.0.1:5173`.
-- Verificaciones: `npm test` y `npm run build`. Con el servidor activo, `npm run test:browser` verifica el recorrido con Chrome instalado en Windows; `BROWSER_PATH` permite indicar otra ruta compatible. Usa perfil temporal separado.
-- Vista del empaquetado: `npm run preview -- --host 127.0.0.1`; abrir la dirección que indique Vite.
-- Grabar la demo local: mostrar DEMO, rechazar con motivo y comentario, comprobar el panel, aprobar, completar ronda y reiniciar.
-- La entrega requiere vídeo breve y repositorio público de GitHub. El despliegue es opcional; no se incorpora al alcance actual.
+- Windows, Node and npm are already available. No credentials or remote services are required.
+- First run: `npm install`.
+- Development: `npm run dev -- --host 127.0.0.1`, using fixed port `5173` with an explicit failure if occupied. Open `http://127.0.0.1:5173`.
+- Checks: `npm test` and `npm run build`. With the server running, `npm run test:browser` checks the journey using Chrome installed on Windows; set `BROWSER_PATH` for another compatible path. It uses a separate temporary profile.
+- Production preview: `npm run preview -- --host 127.0.0.1`; open the address shown by Vite.
+- Record the local demo: show the DEMO notice, Reject with a reason and comment, Submit review, inspect Company dashboard, Approve another offer, complete the round and Reset DEMO.
+- Submission requires a short video and a public GitHub repository. Deployment is optional and outside the current scope.
 
 ## Look and Feel
 Implementa `prd.md > Look and Feel`.
@@ -44,8 +44,8 @@ Implementa `prd.md > Look and Feel`.
 - Plus Jakarta Sans en interfaz y JetBrains Mono en etiquetas técnicas. Incluidas localmente desde paquetes Fontsource 5.3.0, con sus licencias; fuentes de sistema como respaldo. Referencias: https://fonts.google.com/specimen/Plus+Jakarta+Sans, https://fonts.google.com/specimen/JetBrains+Mono y https://fontsource.org/docs/getting-started/install.
 - Jerarquía tipográfica marcada, tarjeta central con salario destacado, bordes discretos y etiquetas técnicas. Diseño adaptable a móvil y escritorio, sin desbordamiento horizontal.
 - Panel con cifras claras, barras CSS para motivos y comentarios legibles. No se necesita una librería de gráficos.
-- Revisión final: contenedor de evaluación de ancho máximo 510 px centrado, sin columnas laterales; un único aviso global DEMO, títulos “Evaluar ofertas” y “Panel empresarial”, secciones “Motivos de rechazo” y “Recomendaciones anónimas”. Sin eslóganes repetidos; no cambiar tamaños ni tipografías.
-- DEMO visible en ambas vistas; interfaz en español. No añadir motivos culturales específicos no definidos en el PRD.
+- Revisión final: contenedor de evaluación de ancho máximo 510 px centrado, sin columnas laterales; un único aviso global DEMO, títulos “Review offers” y “Company dashboard”, secciones “Rejection reasons” y “Anonymous recommendations”. Sin eslóganes repetidos; no cambiar tamaños ni tipografías.
+- DEMO visible en ambas vistas; interfaz, datos ficticios e instrucciones de uso/prueba en inglés por solicitud final del usuario. Nombres propios, identificadores internos y comentarios ya escritos por el usuario se conservan. No añadir motivos culturales específicos no definidos en el PRD.
 - Botones Aprobar/Rechazar con texto, foco visible y estado deshabilitado cuando corresponda. El color no es la única señal.
 - Panel de rechazo como diálogo accesible: foco dentro, cierre por botón/Escape, vuelta del foco al cerrar. Respetar `prefers-reduced-motion`.
 
@@ -114,9 +114,9 @@ No API, base de datos alojada, backend, autenticación ni claves. npm obtiene Vi
 - **Gesto ambiguo:** volver la tarjeta a reposo; botones siempre disponibles. Probar móvil y ratón.
 
 ## Verification
-- Pruebas de modelo: combinación de votos iniciales/nuevos, conteo exacto, motivos múltiples, rechazo sin detalles, total cero y exclusión de duplicados.
-- Verificación de navegador: aprobación inmediata; rechazo cancelado sin cambios; envío con detalles; omitir descarta detalles; recarga conserva datos; comentarios se muestran como texto; fin de ronda; reinicio restaura exactamente los resultados iniciales.
-- Revisar ambas vistas en escritorio y móvil, foco del diálogo y botones equivalentes al gesto. Compilar producción sin errores.
+- Model checks: combined initial/new votes, exact counts, multiple reasons, rejection without details, zero total and duplicate prevention.
+- Browser checks: immediate approval; canceled rejection without changes; submission with details; Skip details discards the draft; reload preserves data; comments render as text; round completion; Reset DEMO restores exact initial results.
+- Review both views on desktop and mobile, dialog focus and buttons equivalent to swipes. Build production without errors.
 
 ## What Was Simplified and Why
 - Un navegador y persistencia local: evita infraestructura y permite demostrar votos reales y métricas derivadas hoy.

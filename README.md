@@ -1,60 +1,62 @@
 # JobPulse
 
-**El pulso del talento tech.** Prototipo funcional para evaluar las condiciones de ofertas laborales y convertir votos, motivos de rechazo y recomendaciones anónimas en métricas útiles.
+**The pulse of tech talent.** A working prototype for reviewing job conditions and turning votes, rejection reasons and anonymous recommendations into useful metrics.
 
-> **DEMO:** todas las empresas, ofertas y opiniones iniciales son ficticias. Las evaluaciones que envíes sí actualizan los resultados del prototipo. No son estadísticas del mercado laboral.
+> **DEMO:** all companies, offers and initial feedback are fictional. The reviews you submit do update the prototype's results. These are not labor market statistics.
 
-## Ejecutar
+## Run locally
 
-Requiere Node.js 22.12+ (verificado con 22.17.0) y npm.
+Requires Node.js 22.12+ (verified with 22.17.0) and npm.
 
 ```sh
 npm install
 npm run dev -- --host 127.0.0.1
 ```
 
-Abre **http://127.0.0.1:5173**. Mantén la terminal abierta. Para detener el servidor, pulsa `Ctrl+C`.
+Open **http://127.0.0.1:5173**. Keep the terminal open. Press `Ctrl+C` to stop the server.
 
 ```sh
-npm test       # Lógica, persistencia, resultados y contratos de renderizado
-npm run build # Genera dist/
+npm test       # Logic, persistence, results and rendering contracts
+npm run build # Generate dist/
 npm run preview -- --host 127.0.0.1
 ```
 
-La vista previa abre en http://127.0.0.1:4173. Cada dirección/origen tiene su propio almacenamiento; usa la misma URL durante la grabación.
+The production preview runs at http://127.0.0.1:4173. Each address/origin has its own storage; use the same URL throughout your recording.
 
-Con el servidor de desarrollo activo, `npm run test:browser` comprueba el circuito en Chrome instalado en Windows, con un perfil temporal independiente. No descarga navegadores ni frameworks. Si Chrome está en otra ruta, indica `BROWSER_PATH`. Las capturas de verificación se guardan en la carpeta temporal `opencode` del entorno de desarrollo.
+With the development server running, `npm run test:browser` checks the full journey using Chrome installed on Windows and a separate temporary profile. It does not download browsers or test frameworks. Set `BROWSER_PATH` if Chrome is installed elsewhere. Verification screenshots are saved in the development environment's temporary `opencode` folder.
 
-## Recorrido de demostración
+## Demo and manual test walkthrough
 
-1. En el panel empresarial, observa **8 evaluaciones iniciales: 5 aprobaciones y 3 rechazos**.
-2. En Evaluar ofertas, pulsa Rechazar o desliza a la izquierda. Cierra el panel: no debe cambiar ningún voto.
-3. Rechaza otra vez; selecciona Salario y escribe una recomendación sin información personal. Pulsa **Enviar evaluación**.
-4. Abre el panel: hay **9 evaluaciones y 4 rechazos**, un nuevo motivo y el comentario enviado.
-5. Vuelve a evaluar; aprueba con el botón o deslizando a la derecha. La aprobación se guarda inmediatamente.
-6. Recarga: tu progreso y las métricas se conservan.
-7. Evalúa la última oferta con **Omitir detalles**: cuenta el rechazo sin añadir motivos ni comentarios.
-8. Aparece **Has evaluado todas las ofertas**. Ver resultados abre el panel; **Reiniciar DEMO** devuelve las 3 ofertas y las métricas iniciales.
+1. In **Company dashboard**, note the **8 initial reviews: 5 approvals and 3 rejections**.
+2. In **Review offers**, click **Reject** or swipe left. Close the panel: no votes should change.
+3. Reject again; select **Salary** and write a recommendation without personal information. Click **Submit review**.
+4. Open the dashboard: there are **9 reviews and 4 rejections**, an additional Salary selection and your submitted comment.
+5. Return to Review offers; click **Approve** or swipe right. The approval is saved immediately.
+6. Reload: your progress and metrics are preserved.
+7. Review the last offer using **Skip details**: the rejection counts without adding reasons or comments, even if you entered a draft.
+8. **You have reviewed all offers** appears. **View results** opens the dashboard; **Reset DEMO** restores the 3 offers and initial metrics.
 
-## Cómo funciona
+## How it works
 
-- HTML, CSS y JavaScript modular; Vite para desarrollo y compilación.
-- Plus Jakarta Sans y JetBrains Mono, incluidas localmente mediante paquetes Fontsource con sus licencias.
-- `src/data.js`: tres ofertas y votos iniciales ficticios.
-- `src/model.js`: reglas, duplicados, pendientes y cálculos de métricas.
-- `src/storage.js`: lectura y escritura versionada en `jobpulse.demo.v1`.
-- `src/review.js`: tarjeta, gestos y panel de rechazo.
-- `src/dashboard.js`: resultados derivados de los votos.
-- `src/main.js`: navegación y coordinación entre vistas y almacenamiento.
+- HTML, CSS and modular JavaScript; Vite for development and production builds.
+- Plus Jakarta Sans and JetBrains Mono, bundled locally through Fontsource packages with their licenses.
+- `src/data.js`: three fictional offers and initial votes.
+- `src/model.js`: rules, duplicate prevention, pending offers and metric calculations.
+- `src/storage.js`: versioned reads and writes using `jobpulse.demo.v1`.
+- `src/review.js`: offer card, gestures and rejection panel.
+- `src/dashboard.js`: results derived from votes.
+- `src/main.js`: navigation and coordination between views and storage.
 
-## Límites
+## Limitations
 
-Sin backend, cuentas, postulación ni sincronización entre dispositivos o pestañas. Las nuevas opiniones se guardan solo en este navegador/origen, sin recoger nombres ni correos. No es un servicio de anonimato para producción. Borrar los datos del sitio elimina la ronda local. Reiniciar DEMO solo reemplaza la clave del proyecto.
+No backend, accounts, job applications or synchronization across devices or tabs. New feedback is saved only in this browser/origin, without collecting names or email addresses. This is not a production anonymity service. Clearing site data removes the local round. **Reset DEMO** only replaces this project's storage key.
 
-Los motivos permiten selección múltiple: sus porcentajes usan el total de rechazos y no necesariamente suman 100%. Un rechazo sin detalles cuenta en el total, sin motivos inventados.
+Rejection reasons allow multiple selections: their percentages use the total number of rejections and do not necessarily add up to 100%. A rejection without details counts toward the total without inventing reasons.
 
-Si el almacenamiento falla, no se avanza ni se muestra éxito. Si contiene datos inválidos, la app informa y ofrece restablecer la DEMO sin sobrescribirlos silenciosamente.
+If saving fails, the app does not advance or report success. If local storage contains invalid data, the app explains the problem and offers to reset the DEMO without silently overwriting it.
 
-## Planificación y entrega
+The interface and fictional dataset are in English. Company and place names are proper names. Existing user-written comments remain exactly as entered; translating the app does not rewrite saved feedback or reset your round.
 
-Planes y progreso en `devpost/`. El perfil personal de aprendizaje está excluido de Git. La entrega del hackathon requiere un vídeo breve y un repositorio público de GitHub; el despliegue es opcional.
+## Planning and submission
+
+Plans and progress are in `devpost/`. The personal learner profile is excluded from Git. The hackathon submission requires a short demo video and a public GitHub repository; deployment is optional.

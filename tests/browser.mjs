@@ -79,7 +79,8 @@ try {
   await evaluate('document.fonts.ready');
   assert.equal(await evaluate('document.querySelectorAll(".demo-tag").length'), 1);
   assert.equal(await evaluate('document.querySelectorAll("aside").length'), 0);
-  assert.equal(await text('h1'), 'Evaluar ofertas');
+  assert.equal(await text('h1'), 'Review offers');
+  assert.equal(await evaluate('document.documentElement.lang'), 'en');
   assert.ok(await evaluate('(() => { const r = document.querySelector(".offer-card").getBoundingClientRect(); return Math.abs(r.x + r.width / 2 - document.documentElement.clientWidth / 2) < 2 && r.width === 510; })()'));
   assert.equal(await evaluate('getComputedStyle(document.querySelector(".offer-title h3")).fontSize'), '26px');
   console.log('PASS: centered 510px card, original title size, no sidebars and one DEMO notice');
@@ -87,7 +88,7 @@ try {
   assert.equal(await evaluate('document.fonts.check(\'400 12px "Plus Jakarta Sans Variable"\')'), true);
   await dashboard();
   assert.equal(await evaluate('document.querySelectorAll(".demo-tag").length'), 1);
-  assert.equal(await text('h1'), 'Panel empresarial');
+  assert.equal(await text('h1'), 'Company dashboard');
   assert.equal(await text('[data-metric="total"]'), '8');
   assert.equal(await text('[data-metric="approved"]'), '5');
   assert.equal(await text('[data-metric="rejected"]'), '3');
@@ -97,7 +98,7 @@ try {
   await click('#reject');
   assert.equal(await evaluate('!!document.querySelector("dialog[open]")'), true);
   assert.equal(await evaluate('document.querySelector("dialog").contains(document.activeElement)'), true);
-  await evaluate('document.querySelector("textarea").value = "Borrador cancelado"');
+  await evaluate('document.querySelector("textarea").value = "Canceled draft"');
   await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
   await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
   await poll(() => evaluate('!document.querySelector("dialog[open]")'), 'Escape closes dialog');
@@ -106,7 +107,7 @@ try {
   assert.equal(await evaluate('document.querySelector("textarea").value'), '');
   await click('input[value="salario"]');
   await click('input[value="beneficios"]');
-  await evaluate('document.querySelector("textarea").value = \'Mejorar salario <img src=x onerror="alert(1)">\'');
+  await evaluate('document.querySelector("textarea").value = \'Improve salary <img src=x onerror="alert(1)">\'');
   await evaluate('document.querySelector("form").requestSubmit()');
   assert.equal(await evaluate('document.querySelector(".offer-card").dataset.offerId'), 'valle-backend');
   await dashboard();
@@ -130,13 +131,13 @@ try {
   await review();
   await click('#reject');
   await click('input[value="requisitos"]');
-  await evaluate('document.querySelector("textarea").value = "Este borrador debe descartarse"');
+  await evaluate('document.querySelector("textarea").value = "This draft should be discarded"');
   await click('#skip-details');
-  assert.match(await text('.complete'), /Has evaluado todas las ofertas/);
+  assert.match(await text('.complete'), /You have reviewed all offers/);
   await click('.complete [data-view="dashboard"]');
   assert.equal(await text('[data-metric="total"]'), '11');
   assert.equal(await text('[data-metric="rejected"]'), '5');
-  assert.ok(!(await text('.comments-list')).includes('Este borrador'));
+  assert.ok(!(await text('.comments-list')).includes('This draft'));
   assert.ok((await text('[data-reason="requisitos"]')).startsWith('2'));
   console.log('PASS: skip details, completion and result navigation');
 
@@ -151,13 +152,13 @@ try {
   await review();
   await evaluate('window.originalSetItem = Storage.prototype.setItem; Storage.prototype.setItem = function () { throw new Error("simulated quota"); }');
   await click('#approve');
-  assert.match(await text('#status'), /No se pudo guardar/);
+  assert.match(await text('#status'), /Could not save/);
   assert.equal(await evaluate('document.querySelector(".offer-card").dataset.offerId'), 'altiplano-frontend');
   await click('#reject');
-  await evaluate('document.querySelector("textarea").value = "Conservar para reintentar"');
+  await evaluate('document.querySelector("textarea").value = "Keep for retry"');
   await evaluate('document.querySelector("form").requestSubmit()');
-  assert.match(await text('#dialog-error'), /No se pudo guardar/);
-  assert.equal(await evaluate('document.querySelector("textarea").value'), 'Conservar para reintentar');
+  assert.match(await text('#dialog-error'), /Could not save/);
+  assert.equal(await evaluate('document.querySelector("textarea").value'), 'Keep for retry');
   await evaluate('Storage.prototype.setItem = window.originalSetItem');
   await evaluate('document.querySelector("form").requestSubmit()');
   assert.equal(await evaluate('document.querySelector(".offer-card").dataset.offerId'), 'valle-backend');

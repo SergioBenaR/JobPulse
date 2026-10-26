@@ -27,6 +27,7 @@ Fuente: `scope.md > The Core Loop` y `What "Working" Looks Like`.
 - Botones equivalentes a los deslizamientos para aprobar y rechazar desde computadora.
 
 ## Look and Feel
+- Revisión de idioma aprobada: interfaz, datos DEMO, README e instrucciones de prueba en inglés. Las etiquetas españolas citadas en este documento de planificación representan su equivalente inglés actual: “Review offers”, “Company dashboard”, “Submit review”, “Skip details”, “You have reviewed all offers”, “View results” y “Reset DEMO”. No cambiar lógica, diseño, tamaños ni tipografías; conservar nombres propios y comentarios guardados del usuario.
 - Oscuro, minimalista, moderno y orientado a desarrolladores; identidad visual memorable.
 - Fondo `#0D1117`, tarjetas `#161B22`, texto `#F0F6FC`, índigo `#6366F1`, verde `#22C55E`, rojo `#EF4444`.
 - Plus Jakarta Sans para la interfaz; JetBrains Mono para etiquetas técnicas.

@@ -6,7 +6,7 @@ export function loadEvaluations(storage) {
   const raw = storage.getItem(STORAGE_KEY);
   if (raw === null) return [];
   const data = JSON.parse(raw);
-  if (data?.version !== 1) throw new Error('Versión de datos locales inválida.');
+  if (data?.version !== 1) throw new Error('Invalid local data version.');
   return validateEvaluations(data.evaluations);
 }
 

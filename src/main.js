@@ -16,7 +16,7 @@ let busy = false;
 let message = '';
 let messageIsError = false;
 try { entries = loadEvaluations(window.localStorage); }
-catch { blocked = true; message = 'No pudimos leer los datos locales. Reinicia la DEMO para recuperar el estado inicial.'; messageIsError = true; }
+catch { blocked = true; message = 'We could not read the local data. Reset DEMO to restore the initial state.'; messageIsError = true; }
 
 function notify(text, error = false) {
   message = text;
@@ -27,11 +27,11 @@ function notify(text, error = false) {
 }
 
 function render(focusHeading = false) {
-  app.innerHTML = `<header class="site-header"><div class="header-inner"><a href="#" class="brand" aria-label="JobPulse, evaluar ofertas"><span class="brand-icon">${icons.pulse}</span><span>Job<span class="brand-light">Pulse</span><span class="brand-period">.</span></span></a><nav aria-label="Vistas principales"><button data-view="review" class="nav-button ${view === 'review' ? 'active' : ''}" ${view === 'review' ? 'aria-current="page"' : ''}>${icons.code} Evaluar ofertas</button><button data-view="dashboard" class="nav-button ${view === 'dashboard' ? 'active' : ''}" ${view === 'dashboard' ? 'aria-current="page"' : ''}>${icons.chart} Panel empresarial</button></nav></div></header>
-  <main id="content"><div class="page-heading"><h1 tabindex="-1">${view === 'review' ? 'Evaluar ofertas' : 'Panel empresarial'}</h1><div class="session-progress mono"><span>${entries.length.toString().padStart(2, '0')} / ${offers.length.toString().padStart(2, '0')}</span><small>EVALUADAS EN TU RONDA</small></div></div>
-  <div class="demo-banner"><span class="demo-tag">DEMO</span><p>Ofertas, empresas y opiniones iniciales ficticias. <span>Tus evaluaciones se guardan en este navegador.</span></p></div>
+  app.innerHTML = `<header class="site-header"><div class="header-inner"><a href="#" class="brand" aria-label="JobPulse, review offers"><span class="brand-icon">${icons.pulse}</span><span>Job<span class="brand-light">Pulse</span><span class="brand-period">.</span></span></a><nav aria-label="Main views"><button data-view="review" class="nav-button ${view === 'review' ? 'active' : ''}" ${view === 'review' ? 'aria-current="page"' : ''}>${icons.code} Review offers</button><button data-view="dashboard" class="nav-button ${view === 'dashboard' ? 'active' : ''}" ${view === 'dashboard' ? 'aria-current="page"' : ''}>${icons.chart} Company dashboard</button></nav></div></header>
+  <main id="content"><div class="page-heading"><h1 tabindex="-1">${view === 'review' ? 'Review offers' : 'Company dashboard'}</h1><div class="session-progress mono"><span>${entries.length.toString().padStart(2, '0')} / ${offers.length.toString().padStart(2, '0')}</span><small>REVIEWED THIS ROUND</small></div></div>
+  <div class="demo-banner"><span class="demo-tag">DEMO</span><p>Fictional offers, companies and initial feedback. <span>Your reviews are saved in this browser.</span></p></div>
   <div id="status" class="status-message ${messageIsError ? 'error-message' : ''}" role="status" aria-live="polite"></div>
-  ${blocked ? '<section class="panel recovery"><h2>Recuperemos tu demostración</h2><p>Los datos locales no se han sobrescrito. Puedes intentar recargar o restablecer el estado inicial.</p><button class="primary" data-reset>Reiniciar DEMO</button></section>' : view === 'review' ? renderReview(entries) : renderDashboard(entries)}
+  ${blocked ? '<section class="panel recovery"><h2>Recover your demo</h2><p>Your local data has not been overwritten. Try reloading or restore the initial state.</p><button class="primary" data-reset>Reset DEMO</button></section>' : view === 'review' ? renderReview(entries) : renderDashboard(entries)}
   </main><div id="dialog-host"></div>`;
   document.querySelector('#status').textContent = message;
   document.querySelector('.brand').addEventListener('click', event => { event.preventDefault(); navigate('review'); });
@@ -57,10 +57,10 @@ function reset() {
     entries = resetDemo(window.localStorage);
     blocked = false;
     view = 'review';
-    message = 'DEMO restablecida. Todas las ofertas y métricas vuelven al estado inicial.';
+    message = 'DEMO reset. All offers and metrics are back to their initial state.';
     messageIsError = false;
     render(true);
-  } catch { notify('No se pudo reiniciar. Comprueba que el navegador permite almacenamiento local e inténtalo de nuevo.', true); }
+  } catch { notify('Could not reset. Check that your browser allows local storage and try again.', true); }
 }
 
 function save(offer, vote, details = { reasons: [], comment: '' }) {
@@ -72,14 +72,14 @@ function save(offer, vote, details = { reasons: [], comment: '' }) {
       id: crypto.randomUUID(), offerId: offer.id, vote, ...details, createdAt: new Date().toISOString(),
     });
     document.querySelector('dialog[open]')?.close();
-    message = vote === 'approve' ? 'Aprobación guardada. Tu voto ya actualizó los resultados.' : 'Rechazo guardado. Tu evaluación ya actualizó los resultados.';
+    message = vote === 'approve' ? 'Approval saved. Your vote has updated the results.' : 'Rejection saved. Your review has updated the results.';
     messageIsError = false;
     render();
     const nextFocus = document.querySelector('#approve') ?? document.querySelector('[data-view="dashboard"].primary');
     nextFocus?.focus();
     return true;
   } catch {
-    const text = 'No se pudo guardar. Revisa el almacenamiento del navegador y vuelve a intentarlo; tu evaluación no se ha contado.';
+    const text = 'Could not save. Check your browser storage and try again; your review has not been counted.';
     const error = document.querySelector('#dialog-error');
     if (error) { error.hidden = false; error.textContent = text; }
     else notify(text, true);

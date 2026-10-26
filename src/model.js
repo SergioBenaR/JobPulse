@@ -1,7 +1,7 @@
 import { offers, reasons } from './data.js';
 
 export function validateEvaluations(entries) {
-  if (!Array.isArray(entries) || entries.length > offers.length) throw new Error('Datos locales inválidos.');
+  if (!Array.isArray(entries) || entries.length > offers.length) throw new Error('Invalid local data.');
   const seen = new Set();
   const ids = new Set();
   for (const e of entries) {
@@ -13,7 +13,7 @@ export function validateEvaluations(entries) {
       || typeof e.comment !== 'string' || e.comment.length > 1000
       || typeof e.createdAt !== 'string' || !Number.isFinite(Date.parse(e.createdAt))
       || (e.vote === 'approve' && (e.reasons.length || e.comment))) {
-      throw new Error('Datos locales inválidos.');
+      throw new Error('Invalid local data.');
     }
     seen.add(e.offerId);
     ids.add(e.id);
