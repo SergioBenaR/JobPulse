@@ -40,8 +40,8 @@ Stack aprobado por el usuario:
 
 ### Submission links
 - Public source repository: https://github.com/SergioBenaR/JobPulse — anonymously verified; code licensed under MIT, Copyright (c) 2026 Sergio Benavides. Font licenses remain SIL OFL 1.1.
-- Demo video: pending recording/upload and anonymous access check.
-- Devpost form/submission: actual URL still needed from the learner; not submitted.
+- Demo video: https://www.youtube.com/watch?v=KZRbjjCcjqA — anonymous watch page and oEmbed available; player metadata reports playability OK and duration 86 seconds (1:26), below the learner-reported 3-minute limit. Actual playback/content review remains the learner's check.
+- Hackathon: https://learn-ai-basics.devpost.com/; form: https://devpost.com/submit-to/30447-build-with-ai-basics/manage/submissions. Learner is at step 3/5 with description and technology fields completed. Video must be under 3 minutes according to the learner; automated hackathon access returns HTTP 403. Submission not yet confirmed.
 - Detailed technical delivery state: `devpost/ship.md`.
 
 ## Look and Feel

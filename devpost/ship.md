@@ -30,11 +30,24 @@ Technical delivery notes only. Project descriptions, narration, submission answe
 GitHub CLI 2.103.3 is available as a portable copy outside the project and authenticated as SergioBenaR. Source: https://github.com/cli/cli/releases/tag/v2.103.3.
 
 ## Demo video — recording mechanics
-- [ ] Check the actual Devpost form for its required video duration, format and hosting constraints. The actual hackathon/form URL has not been provided or verified; do not assume a duration limit.
-- [ ] Confirm the recording sequence with the learner, using the already-approved journey below.
-- [ ] Record the functioning application in the browser, with the DEMO notice visible. Use the learner's own narration if any; this document is not a narration script.
-- [ ] Upload the short recording and verify that reviewers can open it without signing in.
-- Video URL: pending.
+- [x] Actual hackathon and form URLs supplied by the learner. Learner reports a demo video under 3 minutes; YouTube reports 86 seconds (1:26), below that limit. Automated hackathon access returns HTTP 403, so the form constraint itself is learner-reported.
+- [x] Recording guidance supplied for the approved core journey; learner supplied the completed video link. No agent-written narration or submission copy supplied.
+- [x] Video published by the learner. Title: JobPulse - Build with AI: Basics | Devpost Hackathon.
+- [x] Anonymous watch-page and oEmbed requests succeed. Player metadata for KZRbjjCcjqA reports playabilityStatus OK and lengthSeconds 86. oEmbed metadata provides a video iframe.
+- [ ] Learner checks playback in a private browser window and confirms the recording visibly shows the core evaluation-to-metrics update. Metadata checks do not establish actual screen content or audio quality.
+- Video URL: https://www.youtube.com/watch?v=KZRbjjCcjqA
+
+Hackathon: https://learn-ai-basics.devpost.com/
+Submission management: https://devpost.com/submit-to/30447-build-with-ai-basics/manage/submissions
+Learner-reported progress: step 3/5, Project details; description and technology fields already completed, public repository ready. Prioritize recording/upload and preserve the existing learner-written answers.
+
+Quick recording plan (screen actions, not narration):
+- 0:00–0:15: show Review offers and the single DEMO notice, salary, requirements and benefits.
+- 0:15–0:30: show Company dashboard baseline (8 reviews, 5 approvals, 3 rejections).
+- 0:30–1:00: return to Review offers, Reject, select Salary, optionally enter the learner's own recommendation, Submit review.
+- 1:00–1:25: show Company dashboard with 9 reviews, 4 rejections, updated Salary count and submitted recommendation if any.
+- 1:25–1:50: Approve another offer, reload to demonstrate persistence, Skip details on the last offer, show completed round and Reset DEMO.
+- Stop well before 3 minutes; watch the saved recording and confirm the central update is visible. Upload to a host accepted by the actual form and verify viewer access without sign-in.
 
 Suggested screen actions, from the approved core journey:
 1. Open `http://127.0.0.1:5173` and use Reset DEMO if necessary.
@@ -48,10 +61,11 @@ On Windows, Xbox Game Bar (`Win+G`) can record an active browser window; `Win+Al
 ## Devpost submission — learner-owned
 - [ ] Open the actual hackathon's submission form and check its current required fields.
 - [ ] Learner writes/confirms the project name, short description and all other required answers. The agent may point out gaps and correct spelling/grammar, but does not draft or rewrite submission copy.
+- Learner reports description and technology fields already completed at step 3/5; do not request or rewrite them again. Remaining required fields still need checking in the user's form.
 - [ ] Add the accessible video URL and public GitHub URL.
 - [ ] Learner completes the exit survey.
 - [ ] Learner submits on Devpost and confirms completion. Do not mark submitted before confirmation.
 - Submission URL: pending.
 
 ## Current blockers
-Public repository and MIT license are complete. Actual Devpost form URL, learner-recorded video and its accessible link, learner-written required answers and exit survey are still needed. No Devpost submission has been made.
+Public repository, MIT license and published video URL are ready; video metadata confirms 86 seconds and playability OK without authentication. Learner should check actual playback/content, finish remaining required form fields and exit survey, then submit. No Devpost submission has been confirmed.

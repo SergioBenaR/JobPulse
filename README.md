@@ -4,6 +4,10 @@
 
 > **DEMO:** all companies, offers and initial feedback are fictional. The reviews you submit do update the prototype's results. These are not labor market statistics.
 
+## Demo video
+
+https://www.youtube.com/watch?v=KZRbjjCcjqA
+
 ## Run locally
 
 Requires Node.js 22.12+ (verified with 22.17.0) and npm.
